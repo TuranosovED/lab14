@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Cards</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+
+    <form method="post">
+
+
+        <label>Фильтр: </label>
+    
+            <select name="filter" id="filter" value="">
+                <option value="no_filter/Без фильтра">Без фильтра</option>
+    
+                <option value="p_industry/По производителю">По производителю</option>
+    
+                <option value="p_price/По цене" >По цене</option>
+    
+                <option value="p_type/По типу">По типу</option>
+
+                <option value="middle_count/По средней оценке">По средней оценке</option>
+    
+    
+    
+            </select>
+        {% if msg %} Фильтруется {{ msg }} {% endif %}
+        <p><input type="submit" value="Submit"></p>
+    
+    
+    
+    
+    </form>
+
+    <button type="button" class="btn btn-success" onclick= " location.href='/' ">На главную страницу</button>
+
+
+<div class="card-group">
+  {% for trash in trashs %} 
+  <br>
+  <div class="flex-center" >
+   <div class="card" style="width: 18rem;">
+      <img src= "{{ url_for('static', filename= trash[6] ) }}" class="card-img-top" alt="photo" width="200" height="150">
+          <div class="card-body">
+            <h5 class="card-title"> {{trash[2]}}</h5>
+            <p class="card-text"> {{trash[3]}}</p>
+          </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> {{trash[1]}}</li>
+        <li class="list-group-item"> {{trash[4]}}</li>
+        <li class="list-group-item"> {{trash[5]}}</li>
+        <li class="list-group-item"> {{trash[7]}}</li>
+      </ul>
+      <div class="card-body">
+            <br>
+            <button type="button" class="btn btn-success" onclick= " location.href='cards/{{trash[0]}}' ">Перейти к товару</button> 
+            </br>
+            {% if admin == True %}
+            <br>
+            <button type="button" class="btn btn-success" onclick= " location.href='cards/Edit/{{trash[0]}}' ">Редактирование</button>
+            </br>
+            <br>
+            <button type="button" class="btn btn-success" onclick= " location.href='cards/delete/{{trash[0]}}' ">Удалить запись</button>
+            </br>
+            {% endif %}
+      </div>
+    </div>
+  </div>
+  <br>
+  {% endfor %}
+</div>
+
+
+</body>
+</html>
+

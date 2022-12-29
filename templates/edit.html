@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+   <title>Редактирование карточки {{p_id}}</title>
+</head>
+<body>
+<h3>Редактирование карточки {{p_id}}</h3>
+
+<form method="post" enctype="multipart/form-data">
+
+    <p>Тип продукта: {{p_type}}<p>
+    <input type="text" name="product_type" id="product_type">
+
+    <p>Имя: {{p_name}}<p>
+    <input type="text" name="product_name" id="product_name">
+
+    <p>Описание: {{p_description}}<p>
+    <input type="text" name="description" id="description">
+
+    <p>Производитель: {{p_industry}}<p>
+    <input type="text" name="industry" id="industry" >
+   
+    <p>Цена: {{p_price}}<p>
+    <input type="text" name="price" id="price">
+
+    <p>Фото<p>
+    <input type="file" name="file">
+    <input type="submit" value="Edit">
+ </form>   
+ <button type="button" class="btn btn-success" onclick= " location.href='/' ">На главную страницу </button>
+</body>
+</html>

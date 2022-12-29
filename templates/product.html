@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   
+   <title>Карточка продукта</title>
+</head>
+<body>
+   <p>{{p_type}}<p>
+   <p>{{p_name}}<p>
+   <p>{{p_description}}<p>
+   <p>{{p_industry}}<p>
+   <p>{{p_price}}<p>
+   <p>Фото<p>
+   <img src= "{{ url_for('static', filename = p_filename ) }}" class="card-img-top" alt="photo" width="250" height="250">
+   
+   
+   <form method="post">
+    <p>Оцените товар</p>
+    <select name="mark"> 
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+    </select>
+    <p>Комментарий</p>
+    <input type="comment" name="comment" id="comment">
+    <input type="submit" value="Отправить комментарий">
+ </form>
+
+
+
+ 
+ <h3>Комментарии пользователей</h3>
+ {% for trash in trashs %} 
+ <div>
+  <p>{{trash[3]}}, оценка {{trash[4]}} :</p>
+  <p>{{trash[2]}}</p>
+ </div>
+ {% endfor %}
+
+</body>
+</html> 
